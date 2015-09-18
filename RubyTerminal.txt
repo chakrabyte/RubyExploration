@@ -1,0 +1,92 @@
+# installing latest ruby via terminal using homebrew
+
+MUs-MacBook-Pro:~ Tama$ brew install ruby-install --HEAD
+==> Cloning https://github.com/postmodern/ruby-install.git
+Cloning into '/Library/Caches/Homebrew/ruby-install--git'...
+remote: Counting objects: 108, done.
+remote: Compressing objects: 100% (92/92), done.
+remote: Total 108 (delta 3), reused 55 (delta 0), pack-reused 0
+Receiving objects: 100% (108/108), 149.67 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (3/3), done.
+Checking connectivity... done.
+==> Checking out branch master
+==> make install PREFIX=/usr/local/Cellar/ruby-install/HEAD
+  /usr/local/Cellar/ruby-install/HEAD: 54 files, 456K, built in 3 seconds
+
+# open interactive Ruby and try some basic commands
+
+MUs-MacBook-Pro:~ Tama$ irb
+irb(main):001:0> "Hello World"
+=> "Hello World"
+irb(main):002:0> puts "Hello World"
+Hello World
+=> nil
+irb(main):003:0> 3+2
+=> 5
+irb(main):004:0> 3+2
+=> 5
+irb(main):005:0> 3*2
+=> 6
+irb(main):006:0> 3**2
+=> 9
+irb(main):007:0> Math.sqrt(9)
+=> 3.0
+
+# make Hello World method
+irb(main):008:0> def h
+irb(main):009:1> puts "Hello World!"
+irb(main):010:1> end
+=> nil
+irb(main):011:0> h
+Hello World!
+=> nil
+irb(main):012:0> h()
+Hello World!
+=> nil
+irb(main):013:0> def h(name)
+irb(main):014:1> puts "Hello #{name}!"
+irb(main):015:1> end
+=> nil
+irb(main):016:0> h("Tama")
+Hello Tama!
+=> nil
+
+# make greeter
+irb(main):024:0> class Greeter
+irb(main):025:1>   def initialize(name = "World")
+irb(main):026:2>     @name = name
+irb(main):027:2>   end
+irb(main):028:1>   def say_hi
+irb(main):029:2>     puts "Hi #{@name}!"
+irb(main):030:2>   end
+irb(main):031:1>   def say_bye
+irb(main):032:2>     puts "Bye #{@name}, come back soon."
+irb(main):033:2>   end
+irb(main):034:1> end
+=> nil
+
+# create greeter object
+irb(main):035:0> g = Greeter.new("Tama")
+=> #<Greeter:0x16cac @name="Tama">
+irb(main):036:0> g.say_hi
+Hi Tama!
+=> nil
+irb(main):037:0> g.say_bye
+Bye Tama, come back soon.
+=> nil
+
+//create and run ruby file
+MUs-MacBook-Pro:~ Tama$ vim ri20min.rb
+MUs-MacBook-Pro:~ Tama$ ruby ri20min.rb
+Hello World!
+Goodbye World.  Come back soon!
+Hello Zeke!
+Goodbye Zeke.  Come back soon!
+Hello Albert!
+Hello Brenda!
+Hello Charles!
+Hello Dave!
+Hello Engelbert!
+Goodbye Albert, Brenda, Charles, Dave, Engelbert.  Come back soon!
+...
+...
